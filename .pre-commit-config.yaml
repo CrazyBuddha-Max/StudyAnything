@@ -1,0 +1,16 @@
+repos:
+-   repo: local
+    hooks:
+    -   id: uv-freeze
+        name: uv-freeze
+        # 使用 python 执行一段简短的代码来跨平台处理过滤逻辑
+        entry: python -c "import subprocess; out = subprocess.check_output(['uv', 'pip', 'freeze', '--exclude-editable']).decode('utf-8'); filtered = [line for line in out.splitlines() if '@ file' not in line]; open('requirements.txt', 'w', encoding='utf-8').write('\n'.join(filtered) + '\n')"
+        language: system
+        pass_filenames: false
+        stages: [pre-commit]
+
+    -   id: git-add-requirements
+        name: git-add-requirements
+        entry: git add requirements.txt
+        language: system
+        pass_filenames: false

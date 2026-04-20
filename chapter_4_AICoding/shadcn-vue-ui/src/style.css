@@ -1,0 +1,463 @@
+@import "tailwindcss";
+
+/* Vercel Design System - CZRag智能问答系统 */
+
+/* CSS Variables - Vercel Color Palette */
+:root {
+  /* Primary Colors */
+  --vercel-black: #171717;
+  --pure-white: #ffffff;
+  --true-black: #000000;
+  
+  /* Workflow Accent Colors */
+  --ship-red: #ff5b4f;
+  --preview-pink: #de1d8d;
+  --develop-blue: #0a72ef;
+  
+  /* Console / Code Colors */
+  --console-blue: #0070f3;
+  --console-purple: #7928ca;
+  --console-pink: #eb367f;
+  
+  /* Interactive Colors */
+  --link-blue: #0072f5;
+  --focus-blue: hsla(212, 100%, 48%, 1);
+  --ring-blue: rgba(147, 197, 253, 0.5);
+  
+  /* Neutral Scale */
+  --gray-900: #171717;
+  --gray-800: #2d2d2d;
+  --gray-700: #3d3d3d;
+  --gray-600: #4d4d4d;
+  --gray-500: #666666;
+  --gray-400: #808080;
+  --gray-300: #a6a6a6;
+  --gray-200: #d4d4d4;
+  --gray-100: #ebebeb;
+  --gray-50: #fafafa;
+  
+  /* Surface & Overlay */
+  --overlay-backdrop: hsla(0, 0%, 98%, 1);
+  --selection-text: hsla(0, 0%, 95%, 1);
+  --badge-blue-bg: #ebf5ff;
+  --badge-blue-text: #0068d6;
+  
+  /* Shadows & Depth */
+  --border-shadow: rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  --subtle-elevation: rgba(0, 0, 0, 0.04) 0px 2px 2px;
+  --card-stack: rgba(0,0,0,0.08) 0px 0px 0px 1px, rgba(0,0,0,0.04) 0px 2px 2px, rgba(0,0,0,0.04) 0px 8px 8px -8px, #fafafa 0px 0px 0px 1px;
+  --ring-border: rgb(235, 235, 235) 0px 0px 0px 1px;
+  
+  /* Typography */
+  --font-geist: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-geist-mono: 'Geist Mono', 'SF Mono', Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Mono', monospace;
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  font-feature-settings: "liga" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-geist);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--gray-900);
+  background-color: var(--pure-white);
+  font-feature-settings: "liga" 1;
+}
+
+/* Typography Classes */
+.display-hero {
+  font-family: var(--font-geist);
+  font-size: 3rem; /* 48px */
+  font-weight: 600;
+  line-height: 1.00;
+  letter-spacing: -2.4px;
+}
+
+.section-heading {
+  font-family: var(--font-geist);
+  font-size: 2.5rem; /* 40px */
+  font-weight: 600;
+  line-height: 1.20;
+  letter-spacing: -2.4px;
+}
+
+.sub-heading-large {
+  font-family: var(--font-geist);
+  font-size: 2rem; /* 32px */
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -1.28px;
+}
+
+.sub-heading {
+  font-family: var(--font-geist);
+  font-size: 2rem; /* 32px */
+  font-weight: 400;
+  line-height: 1.50;
+  letter-spacing: -1.28px;
+}
+
+.card-title {
+  font-family: var(--font-geist);
+  font-size: 1.5rem; /* 24px */
+  font-weight: 600;
+  line-height: 1.33;
+  letter-spacing: -0.96px;
+}
+
+.card-title-light {
+  font-family: var(--font-geist);
+  font-size: 1.5rem; /* 24px */
+  font-weight: 500;
+  line-height: 1.33;
+  letter-spacing: -0.96px;
+}
+
+.body-large {
+  font-family: var(--font-geist);
+  font-size: 1.25rem; /* 20px */
+  font-weight: 400;
+  line-height: 1.80;
+  letter-spacing: normal;
+  color: var(--gray-600);
+}
+
+.body {
+  font-family: var(--font-geist);
+  font-size: 1.125rem; /* 18px */
+  font-weight: 400;
+  line-height: 1.56;
+  letter-spacing: normal;
+  color: var(--gray-600);
+}
+
+.body-small {
+  font-family: var(--font-geist);
+  font-size: 1rem; /* 16px */
+  font-weight: 400;
+  line-height: 1.50;
+  letter-spacing: normal;
+  color: var(--gray-600);
+}
+
+.body-medium {
+  font-family: var(--font-geist);
+  font-size: 1rem; /* 16px */
+  font-weight: 500;
+  line-height: 1.50;
+  letter-spacing: normal;
+}
+
+.body-semibold {
+  font-family: var(--font-geist);
+  font-size: 1rem; /* 16px */
+  font-weight: 600;
+  line-height: 1.50;
+  letter-spacing: -0.32px;
+}
+
+.button-link {
+  font-family: var(--font-geist);
+  font-size: 0.875rem; /* 14px */
+  font-weight: 500;
+  line-height: 1.43;
+  letter-spacing: normal;
+}
+
+.button-small {
+  font-family: var(--font-geist);
+  font-size: 0.875rem; /* 14px */
+  font-weight: 400;
+  line-height: 1.00;
+  letter-spacing: normal;
+}
+
+.caption {
+  font-family: var(--font-geist);
+  font-size: 0.75rem; /* 12px */
+  font-weight: 400;
+  line-height: 1.33;
+  letter-spacing: normal;
+  color: var(--gray-500);
+}
+
+.mono-body {
+  font-family: var(--font-geist-mono);
+  font-size: 1rem; /* 16px */
+  font-weight: 400;
+  line-height: 1.50;
+  letter-spacing: normal;
+  font-feature-settings: "liga" 1;
+}
+
+.mono-caption {
+  font-family: var(--font-geist-mono);
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 500;
+  line-height: 1.54;
+  letter-spacing: normal;
+  font-feature-settings: "liga" 1;
+}
+
+.mono-small {
+  font-family: var(--font-geist-mono);
+  font-size: 0.75rem; /* 12px */
+  font-weight: 500;
+  line-height: 1.00;
+  letter-spacing: normal;
+  text-transform: uppercase;
+  font-feature-settings: "liga" 1;
+}
+
+.micro-badge {
+  font-family: var(--font-geist);
+  font-size: 0.4375rem; /* 7px */
+  font-weight: 700;
+  line-height: 1.00;
+  letter-spacing: normal;
+  text-transform: uppercase;
+}
+
+/* Utility Classes */
+.shadow-border {
+  box-shadow: var(--border-shadow);
+}
+
+.shadow-card {
+  box-shadow: var(--card-stack);
+}
+
+.shadow-subtle {
+  box-shadow: var(--subtle-elevation);
+}
+
+.rounded-6 {
+  border-radius: 6px;
+}
+
+.rounded-8 {
+  border-radius: 8px;
+}
+
+.rounded-12 {
+  border-radius: 12px;
+}
+
+.rounded-pill {
+  border-radius: 9999px;
+}
+
+/* Button Styles */
+.btn-primary-dark {
+  background-color: var(--gray-900);
+  color: var(--pure-white);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-family: var(--font-geist);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.43;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary-dark:hover {
+  background-color: var(--gray-800);
+}
+
+.btn-primary-dark:focus {
+  outline: 2px solid var(--focus-blue);
+  outline-offset: 2px;
+}
+
+.btn-primary-white {
+  background-color: var(--pure-white);
+  color: var(--gray-900);
+  padding: 0px 6px;
+  border-radius: 6px;
+  font-family: var(--font-geist);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.43;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--ring-border);
+  transition: all 0.2s ease;
+}
+
+.btn-primary-white:hover {
+  background-color: var(--gray-100);
+}
+
+.btn-pill {
+  background-color: var(--badge-blue-bg);
+  color: var(--badge-blue-text);
+  padding: 0px 10px;
+  border-radius: 9999px;
+  font-family: var(--font-geist);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.33;
+  border: none;
+  cursor: pointer;
+}
+
+/* Card Styles */
+.card {
+  background-color: var(--pure-white);
+  border-radius: 8px;
+  box-shadow: var(--card-stack);
+  padding: 24px;
+}
+
+.card-image {
+  border-radius: 12px 12px 0px 0px;
+  border: 1px solid var(--gray-100);
+}
+
+/* Layout Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.grid-2-col {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.grid-3-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.grid-4-col {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+/* Spacing Utilities */
+.space-y-2 > * + * {
+  margin-top: 8px;
+}
+
+.space-y-4 > * + * {
+  margin-top: 16px;
+}
+
+.space-y-8 > * + * {
+  margin-top: 32px;
+}
+
+/* Focus Styles */
+:focus-visible {
+  outline: 2px solid var(--focus-blue);
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--selection-text);
+  color: var(--gray-900);
+}
+
+/* Link Styles */
+a {
+  color: var(--link-blue);
+  text-decoration: none;
+  position: relative;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Workflow Pipeline */
+.workflow-step-develop {
+  color: var(--develop-blue);
+}
+
+.workflow-step-preview {
+  color: var(--preview-pink);
+}
+
+.workflow-step-ship {
+  color: var(--ship-red);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+  .grid-3-col,
+  .grid-4-col {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .container {
+    padding: 0 16px;
+  }
+  
+  .display-hero {
+    font-size: 2.5rem;
+    letter-spacing: -2px;
+  }
+  
+  .section-heading {
+    font-size: 2rem;
+    letter-spacing: -1.6px;
+  }
+}
+
+/* Animation Utilities */
+.transition-all {
+  transition: all 0.2s ease;
+}
+
+.transition-colors {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Code Block Styles */
+.code-block {
+  font-family: var(--font-geist-mono);
+  background-color: var(--gray-50);
+  border-radius: 6px;
+  padding: 16px;
+  border: 1px solid var(--gray-100);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+
+.code-keyword {
+  color: var(--console-purple);
+}
+
+.code-string {
+  color: var(--console-pink);
+}
+
+.code-number {
+  color: var(--console-blue);
+}
+
+.code-comment {
+  color: var(--gray-400);
+}

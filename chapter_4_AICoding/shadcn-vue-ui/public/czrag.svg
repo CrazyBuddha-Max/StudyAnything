@@ -1,0 +1,54 @@
+<svg viewBox="0 0 600 700" xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <linearGradient id="frontGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFF176"/>
+      <stop offset="100%" stop-color="#FFB300"/>
+    </linearGradient>
+
+    <linearGradient id="sideGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFA000"/>
+      <stop offset="100%" stop-color="#E65100"/>
+    </linearGradient>
+
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="30" stdDeviation="30"
+        flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- 挤出层 -->
+  <g transform="translate(50,50)">
+    <path d="
+      M50 150
+      H550
+      M500 150
+      C300 150 200 280 200 350
+      C200 430 300 600 500 600
+      M50 600
+      H550"
+      stroke="url(#sideGrad)"
+      stroke-width="150"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      fill="none"/>
+  </g>
+
+  <!-- 正面主体 -->
+  <g filter="url(#shadow)">
+    <path d="
+      M50 150
+      H550
+      M500 150
+      C300 150 200 280 200 350
+      C200 430 300 600 500 600
+      M50 600
+      H550"
+      stroke="url(#frontGrad)"
+      stroke-width="150"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      fill="none"/>
+  </g>
+
+</svg>
