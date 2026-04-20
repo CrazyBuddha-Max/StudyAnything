@@ -10,8 +10,7 @@ try:
     with open("chapter_1/index.html", "w", encoding="utf-8") as f:
         f.write(response.text)
 
-    
-    print(f"内容已成功导出到 index.html")
+    print("内容已成功导出到 index.html")
 
 except requests.exceptions.RequestException as e:
     print(f"发生错误: {e}")
