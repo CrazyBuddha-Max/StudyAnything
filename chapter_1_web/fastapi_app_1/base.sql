@@ -1,0 +1,3 @@
+CREATE DATABASE student_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+/* 2026-04-21 16:45:05 [2 ms] */ 
+SHOW DATABASES;
