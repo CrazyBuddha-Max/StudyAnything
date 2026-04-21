@@ -11,3 +11,4 @@ wheels/
 .vscode/
 chapter_1_web/index.html
 node_modules/
+.env
