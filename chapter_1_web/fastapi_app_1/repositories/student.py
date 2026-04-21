@@ -1,8 +1,7 @@
-from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select
 from models.student import Student
 from schemas.student import StudentCreate, StudentUpdate
-from typing import Optional
+from sqlalchemy import delete, select
+from sqlalchemy.ext.asyncio import AsyncSession
 
 
 class StudentRepository:
@@ -13,15 +12,25 @@ class StudentRepository:
         result = await self.db.execute(select(Student))
         return result.scalars().all()
 
-    async def find_by_id(self, student_id: int) -> Optional[Student]:
+    async def find_by_id(self, student_id: int) -> Student | None:
         result = await self.db.execute(select(Student).where(Student.id == student_id))
         return result.scalar_one_or_none()
 
     async def create(self, data: StudentCreate) -> Student:
-        pass
+        student = Student(**data.model_dump())
+        self.db.add(student)
+        await self.db.flush()  # 写入不提交，让id自增生效
+        await self.db.refresh(student)  # 刷新对象，获得数据库生成的id
+        return student
 
     async def update(self, student: Student, data: StudentUpdate) -> Student:
-        pass
+        update_data = data.model_dump(exclude_none=True)
+        for field, value in update_data.items():
+            setattr(student, field, value)
+        await self.db.flush()
+        await self.db.refresh(student)
+        return student
 
-    async def delete(self, student: Student) -> Student:
-        pass
+    async def delete(self, student_id: int) -> bool:
+        result = await self.db.execute(delete(Student).where(Student.id == student_id))
+        return result.rowcount > 0
