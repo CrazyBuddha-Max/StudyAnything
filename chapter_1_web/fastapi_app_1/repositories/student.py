@@ -12,7 +12,7 @@ class StudentRepository:
         result = await self.db.execute(select(Student))
         return result.scalars().all()
 
-    async def find_by_id(self, student_id: int) -> Student | None:
+    async def find_by_id(self, student_id: str) -> Student | None:
         result = await self.db.execute(select(Student).where(Student.id == student_id))
         return result.scalar_one_or_none()
 
@@ -31,6 +31,6 @@ class StudentRepository:
         await self.db.refresh(student)
         return student
 
-    async def delete(self, student_id: int) -> bool:
+    async def delete(self, student_id: str) -> bool:
         result = await self.db.execute(delete(Student).where(Student.id == student_id))
         return result.rowcount > 0
