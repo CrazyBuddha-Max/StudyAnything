@@ -1,5 +1,4 @@
 from pydantic import BaseModel, Field
-from typing import Optional
 
 
 class StudentCreate(BaseModel):
@@ -13,7 +12,7 @@ class StudentCreate(BaseModel):
 
 
 class StudentResponse(BaseModel):
-    id: int
+    id: str
     name: str
     age: int
     gender: str
@@ -22,6 +21,6 @@ class StudentResponse(BaseModel):
 
 
 class StudentUpdate(BaseModel):
-    name: Optional[str] = Field(None, min_length=1, max_length=50)
-    age: Optional[int] = Field(None, ge=0, le=150)
-    gender: Optional[str] = Field(None, pattern="^(male|female|other)$")
+    name: str | None = Field(None, min_length=1, max_length=50)
+    age: int | None = Field(None, ge=0, le=150)
+    gender: str | None = Field(None, pattern="^(male|female|other)$")

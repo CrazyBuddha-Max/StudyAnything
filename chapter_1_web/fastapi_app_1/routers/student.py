@@ -16,7 +16,7 @@ async def list_students(db: AsyncSession = Depends(get_db)):
 
 
 @router.get("/{student_id}", response_model=StudentResponse)
-async def get_student(student_id: int, db: AsyncSession = Depends(get_db)):
+async def get_student(student_id: str, db: AsyncSession = Depends(get_db)):
     return await StudentService(db).get_by_id(student_id)
 
 
@@ -27,11 +27,11 @@ async def create_student(data: StudentCreate, db: AsyncSession = Depends(get_db)
 
 @router.patch("/{student_id}", response_model=StudentResponse)
 async def update_student(
-    student_id: int, data: StudentUpdate, db: AsyncSession = Depends(get_db)
+    student_id: str, data: StudentUpdate, db: AsyncSession = Depends(get_db)
 ):
     return await StudentService(db).update(student_id, data)
 
 
 @router.delete("/{student_id}")
-async def delete_student(student_id: int, db: AsyncSession = Depends(get_db)):
+async def delete_student(student_id: str, db: AsyncSession = Depends(get_db)):
     return await StudentService(db).delete(student_id)

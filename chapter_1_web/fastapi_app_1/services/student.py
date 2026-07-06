@@ -12,7 +12,7 @@ class StudentService:
     async def get_all(self) -> list[Student]:
         return await self.repo.find_all()
 
-    async def get_by_id(self, student_id: int) -> Student:
+    async def get_by_id(self, student_id: str) -> Student:
         student = await self.repo.find_by_id(student_id)
         if not student:
             raise HTTPException(
@@ -24,11 +24,11 @@ class StudentService:
     async def create(self, data: StudentCreate) -> Student:
         return await self.repo.create(data)
 
-    async def update(self, student_id: int, data: StudentUpdate) -> Student:
+    async def update(self, student_id: str, data: StudentUpdate) -> Student:
         student = await self.get_by_id(student_id)
         return await self.repo.update(student, data)
 
-    async def delete(self, student_id: int) -> dict:
+    async def delete(self, student_id: str) -> dict:
         deleted = await self.repo.delete(student_id)
         if not deleted:
             raise HTTPException(
