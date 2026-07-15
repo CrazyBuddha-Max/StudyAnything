@@ -16,6 +16,7 @@ distro==1.9.0
 fastapi==0.135.3
 filelock==3.29.0
 frozenlist==1.8.0
+google-search-results==2.4.2
 greenlet==3.4.0
 h11==0.16.0
 httpcore==1.0.9
@@ -35,6 +36,7 @@ propcache==0.4.1
 pydantic==2.13.0
 pydantic-core==2.46.0
 pydantic-settings==2.14.0
+pygame==2.6.1
 pymysql==1.1.2
 python-dateutil==2.9.0.post0
 python-discovery==1.2.2
